@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevHobby.DLL", "DevHobby.DLL\DevHobby.DLL.csproj", "{CF900557-9FBB-4080-8F2A-61B0BEE84B0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF900557-9FBB-4080-8F2A-61B0BEE84B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF900557-9FBB-4080-8F2A-61B0BEE84B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF900557-9FBB-4080-8F2A-61B0BEE84B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF900557-9FBB-4080-8F2A-61B0BEE84B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D3150C2-5DA8-4C94-8697-A19D3E38DDD4}
+	EndGlobalSection
+EndGlobal
