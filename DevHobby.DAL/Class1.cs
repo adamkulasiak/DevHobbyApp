@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevHobby.DLL
+namespace DevHobby.DAL
 {
     public class Class1
     {
-
     }
 }
