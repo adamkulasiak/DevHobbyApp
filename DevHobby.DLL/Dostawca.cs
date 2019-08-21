@@ -19,7 +19,7 @@ namespace DevHobby.BLL
         public string WyslijEmailWitamy(string wiadomosc)
         {
             var emailService = new EmailService();
-            var temat = "Witaj " + this.NazwaFirmy;
+            var temat = ("Witaj " + this.NazwaFirmy).Trim();
             var potwierdzenie = emailService.WyslijWiadomosc(temat, wiadomosc, this.Email);
 
             return potwierdzenie;
