@@ -12,6 +12,14 @@ namespace DevHobby.BLL
             Console.WriteLine("Produkt zostal utworzony");
         }
 
+        public Produkt(int produktId, string nazwaProduktu, string opis) : this()
+        {
+           this.ProduktId = produktId;
+           this.NazwaProduktu = nazwaProduktu;
+           this.Opis = opis;
+            Console.WriteLine("Produkt ma nazwe " + nazwaProduktu);
+        }
+
         private int produktId;
 
         public int ProduktId
@@ -38,7 +46,7 @@ namespace DevHobby.BLL
 
         public string PowiedzWitaj()
         {
-            return "Witaj " + NazwaProduktu + "("+ProduktId+"): " + Opis;
+            return "Witaj " + NazwaProduktu + "(" + ProduktId + "): " + Opis;
         }
     }
 }

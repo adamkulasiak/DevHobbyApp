@@ -57,8 +57,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DevHobby.DLL\DevHobby.BLL.csproj">
-      <Project>{CF900557-9FBB-4080-8F2A-61B0BEE84B0E}</Project>
+    <ProjectReference Include="..\DevHobby.BLL\DevHobby.BLL.csproj">
+      <Project>{BA658DB6-3B17-47D2-870A-FC00FE0C3F00}</Project>
       <Name>DevHobby.BLL</Name>
     </ProjectReference>
   </ItemGroup>
