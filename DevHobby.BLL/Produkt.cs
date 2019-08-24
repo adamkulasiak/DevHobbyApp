@@ -9,6 +9,8 @@ namespace DevHobby.BLL
     /// </summary>
     public class Produkt
     {
+        public const double CaliNaMetr = 38.87;
+
         #region konstruktory
         public Produkt()
         {

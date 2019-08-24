@@ -70,5 +70,18 @@ namespace DevHobby.DLL.Tests
             //assert
             Assert.AreEqual(oczekiwana, aktualna);
         }
+
+        [TestMethod()]
+        public void Konwersja_CaliNaMetrTest()
+        {
+            //arrange
+            var oczekiwana = 194.35;
+
+            //act
+            var aktualna = 5 * Produkt.CaliNaMetr;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
     }
 }
