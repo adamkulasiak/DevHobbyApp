@@ -7,9 +7,12 @@ namespace DevHobby.BLL
     /// </summary>
     public class Dostawca
     {
+        #region wlasciwosci
         public int DostawcaId { get; set; }
         public string NazwaFirmy { get; set; }
         public string Email { get; set; }
+
+        #endregion
 
         /// <summary>
         /// Wysyla wiadomosc email, aby powitac nowego dostawce

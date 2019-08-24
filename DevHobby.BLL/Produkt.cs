@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevHobby.Common;
+using static DevHobby.Common.LogowanieService;
+using System;
 
 namespace DevHobby.BLL
 {
@@ -7,6 +9,7 @@ namespace DevHobby.BLL
     /// </summary>
     public class Produkt
     {
+        #region konstruktory
         public Produkt()
         {
             Console.WriteLine("Produkt zostal utworzony");
@@ -20,6 +23,9 @@ namespace DevHobby.BLL
             Console.WriteLine("Produkt ma nazwe " + nazwaProduktu);
         }
 
+        #endregion
+
+        #region Pola i wlasciwosci
         private int produktId;
 
         public int ProduktId
@@ -44,8 +50,18 @@ namespace DevHobby.BLL
             set { opis = value; }
         }
 
+        #endregion
+
         public string PowiedzWitaj()
         {
+            var dostawca = new Dostawca();
+            dostawca.WyslijEmailWitamy("Wiadomosc z produktu");
+
+            var emailService = new EmailService();
+            var potwierdzenie = emailService.WyslijWiadomosc("Nowy produkt", this.NazwaProduktu, "marketing@dev-hobby.pl");
+
+            var wynik = Logowanie("Powiedziano witaj");
+
             return "Witaj " + NazwaProduktu + "(" + ProduktId + "): " + Opis;
         }
     }
