@@ -83,5 +83,33 @@ namespace DevHobby.DLL.Tests
             //assert
             Assert.AreEqual(oczekiwana, aktualna);
         }
+
+        [TestMethod()]
+        public void MinimalnaCena_DomyslnaTest()
+        {
+            //arrange
+            var produkt = new Produkt();
+            var oczekiwana = 10.50m;
+
+            //act
+            var aktualna = produkt.MinimalnaCena;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
+
+        [TestMethod()]
+        public void MinimalnaCena_KrzesloTest()
+        {
+            //arrange
+            var produkt = new Produkt(1, "Krzesło obrotowe", "opis");
+            var oczekiwana = 120.99m;
+
+            //act
+            var aktualna = produkt.MinimalnaCena;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
     }
 }

@@ -10,12 +10,14 @@ namespace DevHobby.BLL
     public class Produkt
     {
         public const double CaliNaMetr = 38.87;
+        public readonly decimal MinimalnaCena;
 
         #region konstruktory
         public Produkt()
         {
             Console.WriteLine("Produkt zostal utworzony");
             //this.DostawcaProduktu = new Dostawca();
+            this.MinimalnaCena = 10.50m;
         }
 
         public Produkt(int produktId, string nazwaProduktu, string opis) : this()
@@ -23,6 +25,10 @@ namespace DevHobby.BLL
             this.ProduktId = produktId;
             this.NazwaProduktu = nazwaProduktu;
             this.Opis = opis;
+            if (NazwaProduktu.StartsWith("Krzesło"))
+            {
+                this.MinimalnaCena = 120.99m;
+            }
             Console.WriteLine("Produkt ma nazwe " + nazwaProduktu);
         }
 
