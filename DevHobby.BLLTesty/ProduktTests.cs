@@ -56,5 +56,19 @@ namespace DevHobby.DLL.Tests
             //assert
             Assert.AreEqual(oczekiwana, aktualna);
         }
+
+        [TestMethod()]
+        public void Produkt_NullTest()
+        {
+            //arrange
+            Produkt produkt = null;
+            string oczekiwana = null;
+
+            //act
+            var aktualna = produkt?.DostawcaProduktu?.NazwaFirmy;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
     }
 }
