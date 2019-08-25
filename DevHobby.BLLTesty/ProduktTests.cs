@@ -126,5 +126,59 @@ namespace DevHobby.DLL.Tests
             //assert
             Assert.AreEqual(oczekiwana, aktualna);
         }
+
+        [TestMethod()]
+        public void NazwaProduktu_ZaKrotkaTest()
+        {
+            //arrange
+            var produkt = new Produkt();
+            produkt.NazwaProduktu = "Krz";
+            string oczekiwana = null;
+            string oczekiwanaWiadomosc = "Nazwa produktu musi byc dluzsza niz 4 znaki";
+
+            //act
+            var aktualna = produkt.NazwaProduktu;
+            var aktualnaWiadomosc = produkt.Wiadomosc;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+            Assert.AreEqual(oczekiwanaWiadomosc, aktualnaWiadomosc);
+        }
+
+        [TestMethod()]
+        public void NazwaProduktu_ZaDlugaTest()
+        {
+            //arrange
+            var produkt = new Produkt();
+            produkt.NazwaProduktu = "Krzesło obrotowe Krzesło obrotowe Krzesło obrotowe Krzesło obrotowe ";
+            string oczekiwana = null;
+            string oczekiwanaWiadomosc = "Nazwa produktu musi byc krotsza niz 30 znakow";
+
+            //act
+            var aktualna = produkt.NazwaProduktu;
+            var aktualnaWiadomosc = produkt.Wiadomosc;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+            Assert.AreEqual(oczekiwanaWiadomosc, aktualnaWiadomosc);
+        }
+
+        [TestMethod()]
+        public void NazwaProduktu_PrawidlowaTest()
+        {
+            //arrange
+            var produkt = new Produkt();
+            produkt.NazwaProduktu = "Krzesło obrotowe";
+            var oczekiwana = "Krzesło obrotowe";
+            string oczekiwanaWiadomosc = null;
+
+            //act
+            var aktualna = produkt.NazwaProduktu;
+            string aktualnaWiadomosc = produkt.Wiadomosc;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+            Assert.AreEqual(oczekiwanaWiadomosc, aktualnaWiadomosc);
+        }
     }
 }
