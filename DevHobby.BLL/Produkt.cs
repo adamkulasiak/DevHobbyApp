@@ -104,7 +104,8 @@ namespace DevHobby.BLL
 
         public string Wiadomosc { get; private set; }
 
-        public string Kategoria { get; set; }
+        internal string Kategoria { get; set; }
+
         public int Numer { get; set; } = 1;
 
 
