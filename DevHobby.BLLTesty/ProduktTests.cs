@@ -238,5 +238,35 @@ namespace DevHobby.DLL.Tests
             //assert
             Assert.AreEqual(oczekiwana, aktualna);
         }
+
+        [TestMethod()]
+        public void KodProduktu_WartoscDomyslnaTest()
+        {
+            //arrange
+            var produkt = new Produkt();
+            var oczekiwana = "Informatyka - 1";
+
+            //act
+            var aktualna = produkt.KodProduktu;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
+
+        [TestMethod()]
+        public void KodProduktu_NowaWartoscTest()
+        {
+            //arrange
+            var produkt = new Produkt();
+            produkt.Kategoria = "Historia";
+            produkt.Numer = 333;
+            var oczekiwana = "Historia - 333";
+
+            //act
+            var aktualna = produkt.KodProduktu;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
     }
 }
