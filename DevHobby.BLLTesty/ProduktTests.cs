@@ -180,5 +180,63 @@ namespace DevHobby.DLL.Tests
             Assert.AreEqual(oczekiwana, aktualna);
             Assert.AreEqual(oczekiwanaWiadomosc, aktualnaWiadomosc);
         }
+
+        [TestMethod()]
+        public void Kategoria_WartoscDomyslnaTest()
+        {
+            //arrange
+            var produkt = new Produkt();
+            var oczekiwana = "Informatyka";
+
+            //act
+            var aktualna = produkt.Kategoria;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
+
+        [TestMethod()]
+        public void Kategoria_NowaWartoscTest()
+        {
+            //arrange
+            var produkt = new Produkt();
+            produkt.Kategoria = "Geografia";
+            var oczekiwana = "Geografia";
+
+            //act
+            var aktualna = produkt.Kategoria;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
+
+        [TestMethod()]
+        public void Numer_WartoscDomyslnaTest()
+        {
+            //arrange
+            var produkt = new Produkt();
+            var oczekiwana = 1;
+
+            //act
+            var aktualna = produkt.Numer;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
+
+        [TestMethod()]
+        public void Numer_NowaWartoscTest()
+        {
+            //arrange
+            var produkt = new Produkt();
+            produkt.Numer = 300;
+            var oczekiwana = 300;
+
+            //act
+            var aktualna = produkt.Numer;
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
     }
 }

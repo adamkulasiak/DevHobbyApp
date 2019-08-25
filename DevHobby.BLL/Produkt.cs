@@ -18,6 +18,7 @@ namespace DevHobby.BLL
             Console.WriteLine("Produkt zostal utworzony");
             //this.DostawcaProduktu = new Dostawca();
             this.MinimalnaCena = 10.50m;
+            this.Kategoria = "Informatyka";
         }
 
         public Produkt(int produktId, string nazwaProduktu, string opis) : this()
@@ -35,6 +36,7 @@ namespace DevHobby.BLL
         #endregion
 
         #region Pola i wlasciwosci
+
         private int produktId;
 
         public int ProduktId
@@ -101,6 +103,10 @@ namespace DevHobby.BLL
         }
 
         public string Wiadomosc { get; private set; }
+
+        public string Kategoria { get; set; }
+        public int Numer { get; set; } = 1;
+
 
         #endregion
 
