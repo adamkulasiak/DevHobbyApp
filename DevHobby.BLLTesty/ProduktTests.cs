@@ -1,6 +1,28 @@
 ﻿using DevHobby.BLL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+namespace DevHobby.BLL.Tests
+{
+    [TestClass()]
+    public class ProduktTests
+    {
+        [TestMethod()]
+        public void ObliczSugerowanaCeneTest()
+        {
+            //arrange
+            var produkt = new Produkt(1, "Biurko", "Opis");
+            produkt.Koszt = 200m;
+            var oczekiwana = 220m;
+
+            //act
+            var aktualna = produkt.ObliczSugerowanaCene(10);
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
+    }
+}
+
 namespace DevHobby.DLL.Tests
 {
     [TestClass()]

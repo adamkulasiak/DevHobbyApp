@@ -110,6 +110,8 @@ namespace DevHobby.BLL
 
         public string KodProduktu => this.Kategoria + " - " + this.Numer;
 
+        public decimal Koszt { get; set; }
+
         #endregion
 
         public string PowiedzWitaj()
@@ -126,9 +128,13 @@ namespace DevHobby.BLL
                     " Dostepny od: " + DataDostepnosci?.ToShortDateString();
         }
 
-        public override string ToString()
-        {
-            return this.NazwaProduktu + "(" + this.ProduktId + ")";
-        }
+        /// <summary>
+        /// Oblicza sugerowna cene detaliczna produktu
+        /// </summary>
+        /// <param name="procent">procent</param>
+        /// <returns></returns>
+        public decimal ObliczSugerowanaCene(decimal procent) => this.Koszt + (this.Koszt * procent / 100);
+
+        public override string ToString() => this.NazwaProduktu + "(" + this.ProduktId + ")";
     }
 }
