@@ -59,6 +59,88 @@ namespace DevHobby.BLL
 
             return wynikOperacji;
         }
+
+        /// <summary>
+        /// Wysyla zamowienie na produkt do dostawcy
+        /// </summary>
+        /// <param name="produkt">Produkt do zamowienia</param>
+        /// <param name="ilosc">Ilosc produktu do zamowienia</param>
+        /// <param name="data">Data dostawy zamowienia</param>
+        /// <returns></returns>
+        public WynikOperacji ZlozZamowienie(Produkt produkt, int ilosc, DateTimeOffset? data)
+        {
+            if (produkt == null)
+                throw new ArgumentNullException(nameof(produkt));
+            if (ilosc <= 0)
+                throw new ArgumentOutOfRangeException(nameof(ilosc));
+            if (data <= DateTimeOffset.Now)
+                throw new ArgumentOutOfRangeException(nameof(data));
+
+            var sukces = false;
+
+            var tekstZamowienia = "Zamowienie z DevHobby.pl" + Environment.NewLine +
+                                       "Produkt: " + produkt.KodProduktu + Environment.NewLine +
+                                       "Ilość: " + ilosc;
+
+            if (data.HasValue)
+            {
+                tekstZamowienia += Environment.NewLine + "Data dostawy: " + data.Value.ToString("d");
+            }
+
+            var emailService = new EmailService();
+            var potwierdzenie = emailService.WyslijWiadomosc("Nowe zamowienie", tekstZamowienia, this.Email);
+
+            if (potwierdzenie.StartsWith("Wiadomosc wyslana"))
+                sukces = true;
+
+            var wynikOperacji = new WynikOperacji(sukces, tekstZamowienia);
+
+            return wynikOperacji;
+        }
+
+        /// <summary>
+        /// Wysyla zamowienie na produkt do dostawcy
+        /// </summary>
+        /// <param name="produkt">Produkt do zamowienia</param>
+        /// <param name="ilosc">Ilosc produktu do zamowienia</param>
+        /// <param name="data">Data dostawy zamowienia</param>
+        /// <param name="instrukcje">Instrukcje dostawy</param>
+        /// <returns></returns>
+        public WynikOperacji ZlozZamowienie(Produkt produkt, int ilosc, DateTimeOffset? data, string instrukcje)
+        {
+            if (produkt == null)
+                throw new ArgumentNullException(nameof(produkt));
+            if (ilosc <= 0)
+                throw new ArgumentOutOfRangeException(nameof(ilosc));
+            if (data <= DateTimeOffset.Now)
+                throw new ArgumentOutOfRangeException(nameof(data));
+
+            var sukces = false;
+
+            var tekstZamowienia = "Zamowienie z DevHobby.pl" + Environment.NewLine +
+                                       "Produkt: " + produkt.KodProduktu + Environment.NewLine +
+                                       "Ilość: " + ilosc;
+
+            if (data.HasValue)
+            {
+                tekstZamowienia += Environment.NewLine + "Data dostawy: " + data.Value.ToString("d");
+            }
+
+            if (!string.IsNullOrWhiteSpace(instrukcje))
+            {
+                tekstZamowienia += Environment.NewLine + "Instrukcje: " + instrukcje;
+            }
+
+            var emailService = new EmailService();
+            var potwierdzenie = emailService.WyslijWiadomosc("Nowe zamowienie", tekstZamowienia, this.Email);
+
+            if (potwierdzenie.StartsWith("Wiadomosc wyslana"))
+                sukces = true;
+
+            var wynikOperacji = new WynikOperacji(sukces, tekstZamowienia);
+
+            return wynikOperacji;
+        }
         #endregion
     }
 }
