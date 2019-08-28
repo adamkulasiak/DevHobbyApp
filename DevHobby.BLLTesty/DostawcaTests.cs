@@ -107,7 +107,7 @@ namespace DevHobby.BLL.Tests
             var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 1\r\nIlość: 10\r\nData dostawy: 2020/04/22");
 
             //act
-            var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10, new DateTimeOffset(2020, 4, 22, 0, 0, 0, new TimeSpan(8,0,0)));
+            var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10, new DateTimeOffset(2020, 4, 22, 0, 0, 0, new TimeSpan(8, 0, 0)));
 
             //assert
             Assert.AreEqual(wartoscOczekiwana.Sukces, wartoscAktualna.Sukces);
@@ -124,6 +124,22 @@ namespace DevHobby.BLL.Tests
 
             //act
             var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10, new DateTimeOffset(2020, 4, 22, 0, 0, 0, new TimeSpan(8, 0, 0)), "testowe instrukcje");
+
+            //assert
+            Assert.AreEqual(wartoscOczekiwana.Sukces, wartoscAktualna.Sukces);
+            Assert.AreEqual(wartoscOczekiwana.Wiadomosc, wartoscAktualna.Wiadomosc);
+        }
+
+        [TestMethod()]
+        public void ZlozZamowienie_DolaczAdresTest()
+        {
+            //arrange
+            var dostawca = new Dostawca();
+            var produkt = new Produkt(1, "Biurko", "Opis");
+            var wartoscOczekiwana = new WynikOperacji(true, "Tekst zamowienia Dołączamy adres");
+
+            //act
+            var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10, true, false);
 
             //assert
             Assert.AreEqual(wartoscOczekiwana.Sukces, wartoscAktualna.Sukces);

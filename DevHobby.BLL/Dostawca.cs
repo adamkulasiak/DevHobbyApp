@@ -96,6 +96,29 @@ namespace DevHobby.BLL
 
             return wynikOperacji;
         }
+
+        /// <summary>
+        /// Wysyla zamowienie na produkt do dostawcy
+        /// </summary>
+        /// <param name="produkt">Produkt do zamowienia</param>
+        /// <param name="ilosc">Ilosc produktu do zamowienia</param>
+        /// <param name="dolaczAdres">true jesli zawiera adres wysylki</param>
+        /// <param name="wyslijKopie">true jesli wysylamy kopie wiadomosci email</param>
+        /// <returns>flaga sukcesu i tekst zamowienia</returns>
+        public WynikOperacji ZlozZamowienie(Produkt produkt, int ilosc, bool dolaczAdres, bool wyslijKopie)
+        {
+            var tekstZamowienia = "Tekst zamowienia";
+
+            if (dolaczAdres)
+                tekstZamowienia += " Dołączamy adres";
+
+            if (wyslijKopie)
+                tekstZamowienia += " Wysyłamy kopie";
+
+            var wynikOperacji = new WynikOperacji(true, tekstZamowienia);
+
+            return wynikOperacji;
+        }
         #endregion
     }
 }
