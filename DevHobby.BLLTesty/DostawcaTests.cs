@@ -59,7 +59,7 @@ namespace DevHobby.BLL.Tests
             //arrange
             var dostawca = new Dostawca();
             var produkt = new Produkt(1, "Biurko", "Opis");
-            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 1\r\nIlość: 10");
+            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 1\r\nIlość: 10\r\nInstrukcje: Standardowa dostawa");
 
             //act
             var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10);
@@ -104,7 +104,7 @@ namespace DevHobby.BLL.Tests
             //arrange
             var dostawca = new Dostawca();
             var produkt = new Produkt(1, "Biurko", "Opis");
-            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 1\r\nIlość: 10\r\nData dostawy: 2020/04/22");
+            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 1\r\nIlość: 10\r\nData dostawy: 2020/04/22\r\nInstrukcje: Standardowa dostawa");
 
             //act
             var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10, new DateTimeOffset(2020, 4, 22, 0, 0, 0, new TimeSpan(8, 0, 0)));
@@ -124,6 +124,22 @@ namespace DevHobby.BLL.Tests
 
             //act
             var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10, new DateTimeOffset(2020, 4, 22, 0, 0, 0, new TimeSpan(8, 0, 0)), "testowe instrukcje");
+
+            //assert
+            Assert.AreEqual(wartoscOczekiwana.Sukces, wartoscAktualna.Sukces);
+            Assert.AreEqual(wartoscOczekiwana.Wiadomosc, wartoscAktualna.Wiadomosc);
+        }
+
+        [TestMethod()]
+        public void ZlozZamowienieBrakDatyTest()
+        {
+            //arrange
+            var dostawca = new Dostawca();
+            var produkt = new Produkt(1, "Biurko", "Opis");
+            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 1\r\nIlość: 10\r\nInstrukcje: testowe instrukcje");
+
+            //act
+            var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10, instrukcje: "testowe instrukcje");
 
             //assert
             Assert.AreEqual(wartoscOczekiwana.Sukces, wartoscAktualna.Sukces);

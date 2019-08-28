@@ -38,33 +38,10 @@ namespace DevHobby.BLL
         /// </summary>
         /// <param name="produkt">Produkt do zamowienia</param>
         /// <param name="ilosc">Ilosc produktu do zamowienia</param>
-        /// <returns></returns>
-        public WynikOperacji ZlozZamowienie(Produkt produkt, int ilosc)
-        {
-            return ZlozZamowienie(produkt, ilosc, null, null);
-        }
-
-        /// <summary>
-        /// Wysyla zamowienie na produkt do dostawcy
-        /// </summary>
-        /// <param name="produkt">Produkt do zamowienia</param>
-        /// <param name="ilosc">Ilosc produktu do zamowienia</param>
-        /// <param name="data">Data dostawy zamowienia</param>
-        /// <returns></returns>
-        public WynikOperacji ZlozZamowienie(Produkt produkt, int ilosc, DateTimeOffset? data)
-        {
-            return ZlozZamowienie(produkt, ilosc, data, null);
-        }
-
-        /// <summary>
-        /// Wysyla zamowienie na produkt do dostawcy
-        /// </summary>
-        /// <param name="produkt">Produkt do zamowienia</param>
-        /// <param name="ilosc">Ilosc produktu do zamowienia</param>
         /// <param name="data">Data dostawy zamowienia</param>
         /// <param name="instrukcje">Instrukcje dostawy</param>
         /// <returns></returns>
-        public WynikOperacji ZlozZamowienie(Produkt produkt, int ilosc, DateTimeOffset? data, string instrukcje)
+        public WynikOperacji ZlozZamowienie(Produkt produkt, int ilosc, DateTimeOffset? data = null, string instrukcje = "Standardowa dostawa")
         {
             if (produkt == null)
                 throw new ArgumentNullException(nameof(produkt));
