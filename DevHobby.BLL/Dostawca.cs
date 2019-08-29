@@ -114,6 +114,26 @@ namespace DevHobby.BLL
             var trim = dostawcaInfo?.Trim();
             return dostawcaInfo;
         }
+
+        public string ZwrocTekst()
+        {
+            var tekst = @"Wstawiam \r\n nowa linia";
+            return tekst;
+        }
+
+        public string ZwrocTekstDwieLinie()
+        {
+            var tekst = "Pierwsza linia" + Environment.NewLine +
+                        "Druga linia";
+
+            var tekst2 = "Pierwsza linia\r\nDrugalinia";
+
+            var tekst3 = @"Pierwsza linia
+Druga linia";
+
+            return tekst;
+        }
+
         #endregion
     }
 }
