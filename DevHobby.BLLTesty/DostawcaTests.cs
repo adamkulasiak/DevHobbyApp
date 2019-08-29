@@ -59,7 +59,7 @@ namespace DevHobby.BLL.Tests
             //arrange
             var dostawca = new Dostawca();
             var produkt = new Produkt(1, "Biurko", "Opis");
-            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 1\r\nIlość: 10\r\nInstrukcje: Standardowa dostawa");
+            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 0001\r\nIlość: 10\r\nInstrukcje: Standardowa dostawa");
 
             //act
             var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10);
@@ -104,7 +104,7 @@ namespace DevHobby.BLL.Tests
             //arrange
             var dostawca = new Dostawca();
             var produkt = new Produkt(1, "Biurko", "Opis");
-            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 1\r\nIlość: 10\r\nData dostawy: 2020/04/22\r\nInstrukcje: Standardowa dostawa");
+            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 0001\r\nIlość: 10\r\nData dostawy: 2020/04/22\r\nInstrukcje: Standardowa dostawa");
 
             //act
             var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10, new DateTimeOffset(2020, 4, 22, 0, 0, 0, new TimeSpan(8, 0, 0)));
@@ -120,7 +120,7 @@ namespace DevHobby.BLL.Tests
             //arrange
             var dostawca = new Dostawca();
             var produkt = new Produkt(1, "Biurko", "Opis");
-            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 1\r\nIlość: 10\r\nData dostawy: 2020/04/22\r\nInstrukcje: testowe instrukcje");
+            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 0001\r\nIlość: 10\r\nData dostawy: 2020/04/22\r\nInstrukcje: testowe instrukcje");
 
             //act
             var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10, new DateTimeOffset(2020, 4, 22, 0, 0, 0, new TimeSpan(8, 0, 0)), "testowe instrukcje");
@@ -136,7 +136,7 @@ namespace DevHobby.BLL.Tests
             //arrange
             var dostawca = new Dostawca();
             var produkt = new Produkt(1, "Biurko", "Opis");
-            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 1\r\nIlość: 10\r\nInstrukcje: testowe instrukcje");
+            var wartoscOczekiwana = new WynikOperacji(true, "Zamowienie z DevHobby.pl\r\nProdukt: Informatyka - 0001\r\nIlość: 10\r\nInstrukcje: testowe instrukcje");
 
             //act
             var wartoscAktualna = dostawca.ZlozZamowienie(produkt, 10, instrukcje: "testowe instrukcje");

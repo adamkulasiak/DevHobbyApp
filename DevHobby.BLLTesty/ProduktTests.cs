@@ -266,7 +266,7 @@ namespace DevHobby.DLL.Tests
         {
             //arrange
             var produkt = new Produkt();
-            var oczekiwana = "Informatyka - 1";
+            var oczekiwana = "Informatyka - 0001";
 
             //act
             var aktualna = produkt.KodProduktu;
@@ -282,7 +282,7 @@ namespace DevHobby.DLL.Tests
             var produkt = new Produkt();
             produkt.Kategoria = "Historia";
             produkt.Numer = 333;
-            var oczekiwana = "Historia - 333";
+            var oczekiwana = "Historia - 0333";
 
             //act
             var aktualna = produkt.KodProduktu;
