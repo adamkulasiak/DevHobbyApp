@@ -1,5 +1,6 @@
 ﻿using DevHobby.Common;
 using System;
+using System.Text;
 
 namespace DevHobby.BLL
 {
@@ -52,27 +53,29 @@ namespace DevHobby.BLL
 
             var sukces = false;
 
-            var tekstZamowienia = "Zamowienie z DevHobby.pl" + Environment.NewLine +
+            var tekstZamowieniaBuilder = new StringBuilder("Zamowienie z DevHobby.pl" + Environment.NewLine +
                                        "Produkt: " + produkt.KodProduktu + Environment.NewLine +
-                                       "Ilość: " + ilosc;
+                                       "Ilość: " + ilosc);
 
             if (data.HasValue)
             {
-                tekstZamowienia += Environment.NewLine + "Data dostawy: " + data.Value.ToString("d");
+                tekstZamowieniaBuilder.Append(Environment.NewLine + "Data dostawy: " + data.Value.ToString("d"));
             }
 
             if (!string.IsNullOrWhiteSpace(instrukcje))
             {
-                tekstZamowienia += Environment.NewLine + "Instrukcje: " + instrukcje;
+                tekstZamowieniaBuilder.Append(Environment.NewLine + "Instrukcje: " + instrukcje);
             }
 
+            var tekstZamowienia = tekstZamowieniaBuilder.ToString();
+
             var emailService = new EmailService();
-            var potwierdzenie = emailService.WyslijWiadomosc("Nowe zamowienie", tekstZamowienia, this.Email);
+            var potwierdzenie = emailService.WyslijWiadomosc("Nowe zamowienie", tekstZamowienia.ToString(), this.Email);
 
             if (potwierdzenie.StartsWith("Wiadomosc wyslana"))
                 sukces = true;
 
-            var wynikOperacji = new WynikOperacji(sukces, tekstZamowienia);
+            var wynikOperacji = new WynikOperacji(sukces, tekstZamowienia.ToString());
 
             return wynikOperacji;
         }
