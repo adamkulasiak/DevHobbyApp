@@ -99,6 +99,22 @@ namespace DevHobby.BLL
 
             return wynikOperacji;
         }
+
+        public override string ToString()
+        {
+            string dostawcaInfo = "Dostawca: " + this.NazwaFirmy;
+            string wynik = dostawcaInfo.ToLower();
+            wynik = dostawcaInfo.ToUpper();
+            wynik = dostawcaInfo.Replace("Dostawca", "Odbiorca");
+
+            var dlugosc = dostawcaInfo.Length;
+            var index = dostawcaInfo.IndexOf(":");
+            var start = dostawcaInfo.StartsWith("Dosta");
+            var stop = dostawcaInfo.EndsWith("ca");
+            var trim = dostawcaInfo.Trim();
+
+            return dostawcaInfo;
+        }
         #endregion
     }
 }

@@ -161,5 +161,21 @@ namespace DevHobby.BLL.Tests
             Assert.AreEqual(wartoscOczekiwana.Sukces, wartoscAktualna.Sukces);
             Assert.AreEqual(wartoscOczekiwana.Wiadomosc, wartoscAktualna.Wiadomosc);
         }
+
+        [TestMethod()]
+        public void ToStringTest()
+        {
+            //arrange
+            var dostawca = new Dostawca();
+            dostawca.DostawcaId = 2;
+            dostawca.NazwaFirmy = "DevHobby";
+            var oczekiwana = "Dostawca: DevHobby";
+
+            //act
+            var aktualna = dostawca.ToString();
+
+            //assert
+            Assert.AreEqual(oczekiwana, aktualna);
+        }
     }
 }
